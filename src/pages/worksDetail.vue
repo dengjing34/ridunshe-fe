@@ -13,6 +13,9 @@
           <div class="wdHeadIntro dataContent" v-html="data.intro"></div>
         </div>
       </div>
+      <div class="dataContent">
+        <img :src="data.pic"/>
+      </div>
       <div class="dataContent" v-html="data.content"></div>
     </div>
     <share/>
@@ -43,7 +46,7 @@ export default {
         document.title += ('-Works ' + res.title + ' ' + res.sub_title)
         res.intro = res.intro.replace(/\r\n/g, '<br/>')
         this.data = res
-      }).catch(e=>{})
+      }).catch(e => {})
     }
   }
 }

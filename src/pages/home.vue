@@ -16,9 +16,10 @@
 
     </div>
     <div class="sliderBtn">
-        <div v-for="(banner, index) in banners" @click="switchSlider(index);"
-          :class="{active:index==showBannerIndex}" :key="index"></div>
-
+        <div class="sliderBtnItem" v-for="(banner, index) in banners" @click="switchSlider(index);"
+          :class="{active:index==showBannerIndex}" :key="index">
+          <div></div>
+        </div>
     </div>
     <div class="imgs">
       <router-link :to="'works_detail?id='+item.id" v-for="item in list" :key="item.id">
@@ -53,7 +54,7 @@ export default {
         this.banners = res.banner
         this.list = res.list
         this.beginSlider()
-      }).catch(e=>{})
+      }).catch(e => {})
     },
     beginSlider () {
       this.interval = setInterval(() => {
@@ -181,20 +182,31 @@ export default {
 .sliderBtn{
   text-align: center;
   vertical-align: middle;
-  padding:30px 0 40px 0;
+  padding:22px 0 40px 0;
 }
-.sliderBtn div{
+.sliderBtn .sliderBtnItem{
   width:50px;
-  height:2px;
-  background: #d3d3d3;
+  height:20px;
+  line-height: 20px;
+
   display: inline-block;
   margin: 0 4px;
   cursor: pointer;
+  overflow: hidden;
 }
-.sliderBtn div.active{
+
+.sliderBtn .sliderBtnItem div{
+  height:2px;
+  width: 100%;
+  background: #d3d3d3;
+  display: inline-block;
+  overflow: hidden;
+}
+.sliderBtn .active div{
   height:4px;
   background: #b2441d;
 }
+
 .imgs{
   text-align: center;
 }

@@ -43,7 +43,7 @@ export default {
     getContent () {
       get('/works/list?page=' + (this.$route.query.page || 1) + '&category_id=' + (this.$route.query.category_id || '')).then(res => {
         this.data = res
-      }).catch(e=>{})
+      }).catch(e => {})
     }
   }
 }
