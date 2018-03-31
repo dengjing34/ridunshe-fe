@@ -41,7 +41,7 @@ export default {
       this.getContent()
     },
     getContent () {
-      get('/works/list?page=' + (this.$route.query.page || 1) + '&category_id=' + (this.$route.query.category_id || 1)).then(res => {
+      get('/works/list?page=' + (this.$route.query.page || 1) + '&category_id=' + (this.$route.query.category_id || '')).then(res => {
         this.data = res
       })
     }
