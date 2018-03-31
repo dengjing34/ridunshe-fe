@@ -32,7 +32,7 @@ export default {
     getContent () {
       get('/pages?english_name=contactus').then(res => {
         this.content = res.content
-      })
+      }).catch(e=>{})
     }
   }
 }

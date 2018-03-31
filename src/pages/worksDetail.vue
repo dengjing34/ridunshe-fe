@@ -3,7 +3,7 @@
     <div class="content">
       <div class="wdHead">
         <div class="wdHeadL">
-          <div class="wdHeadMark">SPACE DESIGN</div>
+          <div class="wdHeadMark">{{data.category_en}}</div>
           <div class="wdHeadTit">{{data.title}}</div>
           <div class="wdHeadYear">{{data.year}}</div>
           <div class="wdHeadArea">{{data.area}}</div>
@@ -43,7 +43,7 @@ export default {
         document.title += ('-Works ' + res.title + ' ' + res.sub_title)
         res.intro = res.intro.replace(/\r\n/g, '<br/>')
         this.data = res
-      })
+      }).catch(e=>{})
     }
   }
 }

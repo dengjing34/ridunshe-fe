@@ -53,7 +53,7 @@ export default {
         this.banners = res.banner
         this.list = res.list
         this.beginSlider()
-      })
+      }).catch(e=>{})
     },
     beginSlider () {
       this.interval = setInterval(() => {

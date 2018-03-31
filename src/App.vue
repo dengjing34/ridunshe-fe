@@ -101,7 +101,7 @@ export default {
     getNav () {
       get('/index/menu').then(res => {
         this.navs = res
-      })
+      }).catch(e=>{})
     },
     logoClick () {
       this.navShow = false;
@@ -129,7 +129,9 @@ html,body{
 html,body,div,a,p,span{
   font-family:”Microsoft YaHei”;
 }
-
+img{
+  border: none;
+}
 #app {
   width: 1460px;
   margin:0 auto;

@@ -16,6 +16,8 @@ export function get (url, data) {
       } else {
         reject(res)
       }
+    }).catch(e => {
+      reject(e)
     })
   })
 }

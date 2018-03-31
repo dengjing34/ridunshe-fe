@@ -29,7 +29,7 @@ export default {
     getContent () {
       get('/pages?english_name=aboutus').then(res => {
         this.content = res.content
-      })
+      }).catch(e=>{})
     }
   }
 }

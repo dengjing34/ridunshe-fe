@@ -4,6 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+// import Promise from 'promise-polyfill'
+import es6Promise from 'es6-promise';
+if (!window.Promise) {
+  es6Promise.polyfill();
+}
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

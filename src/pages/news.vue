@@ -55,7 +55,7 @@ export default {
         // var oMeta = document.getElementsByTagName('meta')[2];    //第二个
         // oMeta.content = "phone";
         this.data = res
-      })
+      }).catch(e=>{})
     }
   }
 }

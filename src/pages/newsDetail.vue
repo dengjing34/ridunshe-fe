@@ -30,7 +30,7 @@ export default {
       get('/news/detail?id=' + this.$route.query.id).then(res => {
         document.title += ('-News ' + res.title)
         this.content = res.content
-      })
+      }).catch(e=>{})
     }
   }
 }
