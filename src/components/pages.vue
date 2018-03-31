@@ -1,13 +1,13 @@
 <template>
     <div class="pages">
-        <router-link class="preBtn" v-bind:to="'news?page='+(+current_page-1)" v-if="current_page !=1">&lt;</router-link>
+        <router-link class="preBtn" v-bind:to="'?'+urlSearch+'page='+(+current_page-1)" v-if="current_page !=1">&lt;</router-link>
         <router-link class="pageNum"
-        v-bind:to="'news?page='+p"
+        v-bind:to="'?'+urlSearch+'page='+p"
         v-for="p in show_pages"
         v-bind:key="p"
         v-bind:class="{active:current_page==p}"
         >{{p}}</router-link>
-        <router-link class="nextBtn" v-bind:to="'news?page='+(+current_page+1)" v-if="current_page !=page_count">&gt;</router-link>
+        <router-link class="nextBtn" v-bind:to="'?'+urlSearch+'page='+(+current_page+1)" v-if="current_page !=page_count">&gt;</router-link>
     </div>
 </template>
 
@@ -20,12 +20,24 @@ export default {
       page_size: 1,
 
       show_pages: [],
-      page_count: 1
+      page_count: 1,
+      urlSearch: ''
     };
   },
   props: ['countNum', 'currentPage', 'pageSize'],
 
   created () {
+    if (window.location.search) {
+      let urlSearch = '';
+      let searchArr = window.location.search.replace(/^\?/, '').split('&');
+      for (let i in searchArr) {
+        let kvs = searchArr[i].split('=');
+        if (kvs && kvs.length === 2 && kvs[0] != 'page') {
+          urlSearch += searchArr[i] + '&';
+        }
+      }
+      this.urlSearch = urlSearch;
+    }
     // setTimeout(()=>{
     // this.count = 180;
     this.count = this.countNum;
