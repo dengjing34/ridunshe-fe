@@ -1,5 +1,5 @@
 <template>
-    <div class="pages">
+    <div class="pages" v-if="page_count>1">
         <router-link class="preBtn" v-bind:to="'?'+urlSearch+'page='+(+current_page-1)" v-if="current_page !=1">&lt;</router-link>
         <router-link class="pageNum"
         v-bind:to="'?'+urlSearch+'page='+p"

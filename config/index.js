@@ -12,7 +12,7 @@ module.exports = {
 		assetsPublicPath: '/',
 		proxyTable: {
 			'/api/**': {
-				target:'http://demo.ridunshe.com',
+				target:'http://www.ridunshe.com',
 				changeOrigin: true,
 				secure: false
 			},

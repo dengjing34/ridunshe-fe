@@ -24,6 +24,7 @@
     <div class="imgs">
       <router-link :to="'works_detail?id='+item.id" v-for="item in list" :key="item.id">
         <img :src="item.home_pic"/>
+        <div>{{item.title}}</div>
       </router-link>
     </div>
     <div class="copyRight">
@@ -212,12 +213,37 @@ export default {
 }
 .imgs a{
   display: inline-block;
+  width:290px;
+  height:290px;
+  overflow: hidden;
+  margin-right:2px;
+  position: relative;
+}
+.imgs div{
+  width:290px;
+  height:290px;
+  position: absolute;
+  left:0;
+  top:0;
+  line-height: 290px;
+  text-align: center;
+  color: #fff;
+  transition: opacity .35s;
+  opacity: 0;
+  background: rgba(126,126,126, 0.76);
 }
 .imgs img{
-  display: inline-block;
+  display: block;
   width:290px;
   height:290px;
   margin-right: 2px;
+  transition: transform 0.35s linear;
+}
+.imgs a:hover img{
+  transform: scale(1.2);
+}
+.imgs a:hover div{
+  opacity: 1;
 }
 .copyRight{
   position: absolute;

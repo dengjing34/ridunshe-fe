@@ -1,15 +1,19 @@
 <template>
 <div class="appWrap">
   <div id="app">
-    <div class="logoWrap">
-      <router-link class="logo" to="/"
-      @click.native="logoClick">
+    <div class="logoWrap logoWrapphone">
+      <router-link class="logo" to="/" @click.native="logoClick">
         <img src="./assets/logo.png"/>
       </router-link>
       <div class="menuBtn" :class="{menuBtnShow:navShow}" @click="openMenu">×</div>
     </div>
     <div class="wrap">
       <div class="nav" :class="{navShow:navShow}">
+        <div class="logoWrap logoWrappc">
+          <router-link class="logo" to="/" @click.native="logoClick">
+            <img src="./assets/logo.png"/>
+          </router-link>
+        </div>
         <div class="navP">
           <router-link  class="navItem"
             v-bind:class="{navItemActive:nowNav == nav.link}"
@@ -159,6 +163,9 @@ img{
 .logoWrap{
   padding:42px 0 36px 0;
 }
+.logoWrapphone{
+  display: none;
+}
 .logoWrap .logo{
   display: block;
   padding-left:0;
@@ -173,7 +180,8 @@ img{
 
 .nav{
   width:290px;
-  float: left;
+  position: fixed;
+  z-index: 2;
 }
 .navItem{
   display: block;
@@ -181,11 +189,13 @@ img{
   font-weight: bold;
   cursor: pointer;
   color: rgb(126,126,126);
-  line-height: 30px;
+  line-height: 20px;
 }
 .navItemTxt{
   cursor: pointer;
   transition: all 0.2s;
+  font-family: 'Georgia-Bold';
+  font-size: 14px;
 }
 .router-link-active,.navItemActive,.navItemTxt:hover{
   color: rgb(63,63,63);
@@ -195,7 +205,7 @@ img{
 .navItemSub{
   margin-left: 30px;
   text-indent: 12px;
-  border-left: 2px solid rgb(63,63,63);
+  border-left: 1px solid rgb(63,63,63);
   transition: opacity .35s, transform .35s, display 3s ease 3s;
   opacity: 0.3;
   transform: scale(1, 0);
@@ -220,16 +230,27 @@ img{
   text-decoration: none;
   color: rgb(126,126,126);
   padding-left: 0;
+  transition: all 0.2s;
+  font-family: 'Georgia-Bold';
+  font-size: 14px;
+  line-height: 20px;
 }
+.navItemSub a:hover{
+  padding-left: 12px;
+
+}
+
 .subnavActive,.navItemSub a:hover{
   color: rgb(63,63,63) !important;
+  padding-left: 12px  !important;
 }
 
 .conWrap{
   width:1170px;
-  float: left;
   position: relative;
   margin-bottom:50px;
+  padding-top:110px;
+  padding-left: 290px;
 }
 .wrap:after{
   clear: both;
@@ -256,6 +277,12 @@ img{
     right:16px;
     top:0;
     background: #fff;
+  }
+  .logoWrapphone{
+    display: flex;
+  }
+  .logoWrappc{
+    display: none;
   }
   .logo{
 
@@ -326,6 +353,8 @@ img{
   .conWrap{
     width:100%;
     overflow: hidden;
+    padding-top:0;
+    padding-left: 0;
   }
   .dataContent img{
     max-width: 100%;

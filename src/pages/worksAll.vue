@@ -57,10 +57,12 @@ export default {
   width:286px;
   height:190px;
   position: relative;
+  overflow: hidden;
 }
 .worksSubImgItem img{
   width:286px;
   height:190px;
+  transition: transform 0.35s linear;
 }
 .worksSubImgItem div{
   position: absolute;
@@ -78,6 +80,10 @@ export default {
 .worksSubImgItem div:hover{
   opacity: 1;
 }
+.worksSubImgItem:hover img{
+  transform: scale(1.2);
+}
+
 
 @media screen and (max-width: 1024px){
   .worksSubImgItem,.worksSubImgItem img{

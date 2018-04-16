@@ -2,9 +2,10 @@
     <!-- JiaThis Button BEGIN -->
     <!-- <div class="shareWrap jiathis_style_32x32"> -->
     <div class="shareWrap">
-      <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
       <a class="jiathis_button_weixin"></a>
       <a class="jiathis_button_tsina"></a>
+      <!-- <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a> -->
+      <a @click="jumpTop"></a>
     <!-- <script type="text/javascript" >
     var jiathis_config={
       summary:"",
@@ -42,7 +43,9 @@ export default {
     document.getElementsByTagName('head')[0].appendChild(script);
   },
   methods: {
-
+    jumpTop () {
+      window.scroll(0, 0)
+    }
   }
 };
 </script>
@@ -51,6 +54,7 @@ export default {
 .shareWrap{
   /* border: 1px solid red; */
   padding: 40px 0;
+  text-align: center;
 }
 .shareWrap::after{
   display: block;
@@ -58,31 +62,30 @@ export default {
   content: '';
 }
 .shareWrap a{
-  display: block;
+  display: inline-block;
   width:30px;
   height:30px;
   background-image: url(../assets/share_icon.png);
   background-image: url(../assets/share_icon_x1.jpg)\9;
   background-size: auto 30px;
-  float: left;
   margin-right:10px;
   transition: transform .35s;
   transform:scale(1);
   cursor: pointer;
 }
 .shareWrap a:nth-child(1){
-  margin-right: 50px;
+
 }
 .shareWrap a:hover{
   transform:scale(1.2);
 }
 .shareWrap a:nth-child(1):hover{
-  transform:rotate(90deg) scale(1.2);
+  /* transform:rotate(90deg) scale(1.2); */
 }
-.shareWrap a:nth-child(2){
+.shareWrap a:nth-child(1){
   background-position-x:-82px;
 }
-.shareWrap a:nth-child(3){
+.shareWrap a:nth-child(2){
   background-position-x:-121px;
 }
 </style>
