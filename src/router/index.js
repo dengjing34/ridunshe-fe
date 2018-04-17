@@ -64,6 +64,8 @@ router.beforeEach((to, from, next) => {
   }
   if (to.name == 'home') {
     window.showLogoStage = true
+  } else {
+    window.showLogoStage = false
   }
   next()
 })

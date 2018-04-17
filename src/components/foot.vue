@@ -1,16 +1,16 @@
 <template>
  <div class="footer">
-  <div class="fl">
-    <div class="flIcon">
-      <!-- <div class="flIcon1"></div>
-      <div class="flIcon2"></div> -->
+  <div class="flm">
+    <div class="fl">
+      <div class="flIcon">
+        <!-- <div class="flIcon1"></div>
+        <div class="flIcon2"></div> -->
+      </div>
+      <div class="footTxt">
+        T / 138 8070 7553 &nbsp;&nbsp;&nbsp;134 0863 1535<br/>
+        E / ridunshe@126.com
+      </div>
     </div>
-    <div class="footTxt">
-      T / 138 8070 7553 &nbsp;&nbsp;&nbsp;134 0863 1535<br/>
-      E / ridunshe@126.com
-    </div>
-  </div>
-  <div class="fmr">
     <div class="fm">
       <div class="fmrTit"></div>
       <div class="footTxt">
@@ -18,28 +18,28 @@
         成都市·锦江区·三圣乡·幸福梅林·幸福联合四组2号
       </div>
     </div>
-    <div class="fr">
-      <div class="fmrTit"></div>
-      <div class="footTxt">
-        Copyright © Ridunshe committee.<br/>
-        All rights reserved.
-      </div>
+  </div>
+  <div class="fr">
+    <div class="fmrTit"></div>
+    <div class="footTxt">
+      Copyright © Ridunshe committee.<br/>
+      All rights reserved.
     </div>
   </div>
 </div>
 </template>
 
 <script>
-    export default {
-      data () {
-        return {
+export default {
+  data () {
+    return {
 
-        };
-      },
-      methods: {
-        
-      }
     };
+  },
+  methods: {
+
+  }
+};
 </script>
 
 <style scoped>
@@ -59,7 +59,7 @@
 .fl{
   width: 300px;
 }
-.fmr{
+.flm{
   float: left;
 }
 .fm{
@@ -95,25 +95,35 @@
   line-height: 24px;
 }
 @media screen and (max-width: 1024px){
-  .fl,.fmr,.fm,.fr{
+  .footer{
+    padding-top:30px;
+  }
+  .fl,.flm,.fm,.fr{
     float: none;
   }
-  
-  .fmr{
-    padding-top:15px;
-    display: flex;
+
+  .flm{
+    /* display: flex; */
+    display: none;
+  }
+  .fl{
+    width:40%;
   }
   .fm{
-    width: 45%;
+    width: 60%;
   }
   .fr{
-    width:55%;
+    width: 100%;
+  }
+  .fr .footTxt{
+    text-align: center;
   }
   .fl .footTxt{
     padding-top:10px;
+    padding-right:3px;
   }
   .fm .footTxt{
-    padding-right:3px;
+    padding-top:10px;
   }
 }
 </style>

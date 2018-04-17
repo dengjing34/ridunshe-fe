@@ -88,4 +88,9 @@ export default {
 .shareWrap a:nth-child(2){
   background-position-x:-121px;
 }
+@media screen and (max-width: 1024px){
+  .shareWrap a:hover{
+    transform:scale(1);
+  }
+}
 </style>

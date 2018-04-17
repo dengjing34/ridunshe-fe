@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="content">
-      <div class="wdHead">
+      <!-- <div class="wdHead">
         <div class="wdHeadL">
           <div class="wdHeadMark">{{data.category_en}}</div>
           <div class="wdHeadTit">{{data.title}}</div>
@@ -12,6 +12,10 @@
           <div class="wdHeadSubTit">{{data.sub_title}}</div>
           <div class="wdHeadIntro dataContent" v-html="data.intro"></div>
         </div>
+      </div> -->
+      <div class="wdHead2">
+        <h1>{{data.title}} | {{data.sub_title}}</h1>
+        <div class="wdHeadIntro2 dataContent" v-html="data.intro"></div>
       </div>
       <div class="dataContent">
         <img :src="data.pic"/>
@@ -93,14 +97,29 @@ export default {
   line-height: 24px;
 }
 
+.wdHead2{
+  padding-bottom: 60px;
+  max-width: 720px;
+}
+.wdHead2 h1{
+  font-size: 16px;
+  color: rgb(63,63,63);
+}
+.wdHeadIntro2{
+  font-size: 12px;
+  color: rgb(126,126,126);
+  line-height: 24px;
+}
 .dataContent{
   width:100%;
 }
-.dataContent img{
-      max-width: 100%;
-}
 
 @media screen and (max-width: 1024px){
+  .wdHead2{
+    padding-bottom: 0;
+    max-width: auto;
+  }
+
   .wdHead{
     padding: 0;
   }

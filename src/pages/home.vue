@@ -9,22 +9,24 @@
           :class="{sliderActive: showBannerIndex == index}"
           :key="banner.id">
           <img :src="banner.banner_pic"/>
-          <div class="hover">
+          <!-- <div class="hover">
             <p>{{banner.title}}</p>
-          </div>
+          </div> -->
         </router-link>
-
+        <div @click="switchSlider(showBannerIndex-1>=0 ? showBannerIndex-1 : banners.length-1)" class="btnL"></div>
+        <div @click="switchSlider(showBannerIndex+1<banners.length ? showBannerIndex+1 : 0)" class="btnR"></div>
     </div>
     <div class="sliderBtn">
         <div class="sliderBtnItem" v-for="(banner, index) in banners" @click="switchSlider(index);"
-          :class="{active:index==showBannerIndex}" :key="index">
+          :class="{active:index==showBannerIndex}" :key="index"
+          @mouseover="stopSlider" @mouseout="beginSlider">
           <div></div>
         </div>
     </div>
     <div class="imgs">
-      <router-link :to="'works_detail?id='+item.id" v-for="item in list" :key="item.id">
+      <router-link :to="'works_detail?id='+item.id" v-for="(item,index) in list" :key="item.id" :class="{easyShow:easyShowIndex>=(index+1)}">
         <img :src="item.home_pic"/>
-        <div>{{item.title}}</div>
+        <div><p>{{item.title}}</p></div>
       </router-link>
     </div>
     <div class="copyRight">
@@ -43,7 +45,8 @@ export default {
       banners: [],
       list: [],
       showBannerIndex: 0,
-      showNextBannerIndex: 1
+      showNextBannerIndex: 1,
+      easyShowIndex: 0
     }
   },
   created () {
@@ -55,12 +58,21 @@ export default {
         this.banners = res.banner
         this.list = res.list
         this.beginSlider()
+
+        setTimeout(() => {
+          let timer = setInterval(() => {
+            if (this.easyShowIndex++ > this.list.length) {
+              clearInterval(timer);
+            }
+          }, 160);
+          window.waited = true;
+        }, window.showLogoStage && !window.waited ? 3000 : 100);
       }).catch(e => {})
     },
     beginSlider () {
       this.interval = setInterval(() => {
         this.switchSlider()
-      }, 3000)
+      }, 5000)
     },
     stopSlider () {
       if (this.interval) {
@@ -71,8 +83,6 @@ export default {
       let showBannerIndex, showNextBannerIndex
       if (index >= 0) {
         showBannerIndex = index - 1
-        this.stopSlider()
-        this.beginSlider()
       } else {
         showBannerIndex = this.showBannerIndex
       }
@@ -97,13 +107,43 @@ export default {
   width:1170px;
   height:490px;
   overflow: hidden;
+  position: relative;
+}
+.slider .btnL,.slider .btnR{
+  width:35px;
+  height: 60px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 25px auto;
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  border-radius:5px;
+  overflow: hidden;
+}
+.slider .btnL:hover,.slider .btnR:hover{
+  background-color: rgba(126,126,126, 0.76);
+}
+.slider .btnL{
+  left: 50px;
+  background-image: url(../assets/slider_l.png);
+}
+.slider .btnR{
+  right: 50px;
+  background-image: url(../assets/slider_r.png);
 }
 .sliderImgWrap{
   position: absolute;
   display: block;
-  float: left;
   opacity: 0;
-  transition: opacity .5s;
+  transition: opacity 1.5s;
+  width:1170px;
+  height:490px;
+  overflow: hidden;
+  left: 0;
+  top: 0;
 }
 .sliderActive{
   opacity: 1;
@@ -118,13 +158,19 @@ export default {
   height: 490px;
   color: #fff;
   width: 1170px;
-  transition: all 0.3s;
+  transition: all 0.8s;
 }
 
 .sliderImgWrap img{
   width:1170px;
   height:490px;
   display: block;
+  transform: scale(1);
+  transition: transform 0.6s;
+}
+
+.sliderImgWrap:hover img{
+  transform: scale(1.2);
 }
 
 .sliderImgWrap .hover::after,
@@ -211,6 +257,7 @@ export default {
 .imgs{
   text-align: center;
 }
+
 .imgs a{
   display: inline-block;
   width:290px;
@@ -218,6 +265,13 @@ export default {
   overflow: hidden;
   margin-right:2px;
   position: relative;
+  transition: opacity 0.5s ease-out,transform 0.4s ease-out;
+  transform: translateY(50%);
+  opacity: 0;
+}
+.imgs a.easyShow{
+  transform: translateY(0);
+  opacity: 1;
 }
 .imgs div{
   width:290px;
@@ -228,16 +282,22 @@ export default {
   line-height: 290px;
   text-align: center;
   color: #fff;
-  transition: opacity .35s;
+  transition: opacity .5s ease-out;
   opacity: 0;
   background: rgba(126,126,126, 0.76);
+  font-size: 12px;
+}
+.imgs div p{
+  transform: translate(0, 40px);
+  transition: transform 0.4s;
+  margin:0;
 }
 .imgs img{
   display: block;
   width:290px;
   height:290px;
   margin-right: 2px;
-  transition: transform 0.35s linear;
+  transition: transform 0.4s ease-out;
 }
 .imgs a:hover img{
   transform: scale(1.2);
@@ -245,13 +305,12 @@ export default {
 .imgs a:hover div{
   opacity: 1;
 }
+.imgs a:hover div p{
+  transform: translate(0, 0);
+}
+
 .copyRight{
-  position: absolute;
-  width:290px;
-  left: -290px;
-  bottom: 0;
-  color: #a2a2a6;
-  font-size: 12px;
+  display:none;
 }
 
 @media screen and (max-width: 1024px){
@@ -260,12 +319,17 @@ export default {
     height: auto;
 
   }
+  .slider .btnL,.slider .btnR{
+    display: none;
+  }
   .sliderImgWrap{
     position: static;
     opacity: 1;
     float: none;
     transition: none;
     margin-bottom: 15px;
+    width:100%;
+    height:auto;
   }
   .sliderImgWrap img{
     width:100%;
@@ -302,13 +366,23 @@ export default {
   .imgs a{
     display: block;
     width:49%;
+    height: auto;
+    margin-bottom:5px;
   }
   .imgs a img{
     width:100%;
     height:auto;
   }
+  .imgs div{
+    display: none;
+  }
   .copyRight{
-    position: static;
+    display: block;
+    padding: 20px 0;
+    color: #a2a2a6;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
   }
 }
 </style>

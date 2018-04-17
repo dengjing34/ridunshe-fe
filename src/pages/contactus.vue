@@ -4,8 +4,11 @@
       <div class="htmlCon">
         <div class="dataContent" v-html="content"></div>
       </div>
-      <div class="mapCon">
-        <iframe width="504" height="425" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://j.map.baidu.com/3uXGO"></iframe>
+      <div class="mapConWrap">
+        <div class="mapCon">
+          <iframe width="504" height="425" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://j.map.baidu.com/3uXGO"></iframe>
+          <!-- <iframe ref="iframeMap" width="504" height="425" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe> -->
+        </div>
       </div>
     </div>
 
@@ -28,11 +31,16 @@ export default {
   created () {
     this.getContent()
   },
+  mounted () {
+    // var doc = this.$refs.iframeMap.contentDocument || this.$refs.iframeMap.document;
+    // console.log(doc);
+    // doc.body.innerHTML = ''
+  },
   methods: {
     getContent () {
       get('/pages?english_name=contactus').then(res => {
         this.content = res.content
-      }).catch(e=>{})
+      }).catch(e => {})
     }
   }
 }
@@ -48,8 +56,11 @@ export default {
   width: 470px;
   float: left;
 }
+.mapConWrap{
+  padding-top:140px;
+  float:right;
+}
 .mapCon{
-  float: right;
   width:500px;
   height: 310px;
   /* border: 1px solid red; */
@@ -71,10 +82,14 @@ export default {
     float: none;
     margin-bottom: 20px;
   }
-  .mapCon{
+  .mapConWrap{
     width: 100%;
     max-width: 500px;
     float: none;
+  }
+  .mapCon{
+    width: 100%;
+    max-width: 500px;
   }
 }
 </style>

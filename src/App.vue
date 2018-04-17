@@ -22,7 +22,10 @@
             <div class="navItemTxt navItemWeb">{{nav.ename}}</div>
             <div class="navItemTxt navItemPhone" @click="navClick(nav,$event)">
               <div>{{nav.ename}}</div>
-              <div v-if="nav.children && nav.children.length">{{((nowNav == nav.link && navSubShow === '') || navSubShow) ? '∧' : '∨'}}</div>
+              <div
+                v-if="nav.children && nav.children.length"
+                :class="{arrowUp:((nowNav == nav.link && navSubShow === '') || navSubShow)}">
+              </div>
             </div>
             <div class="navItemSub navItemSubWeb"
               :class="{navItemSubWrapShow: nowNav == nav.link}"
@@ -35,6 +38,8 @@
                 >
                 {{subnav.ename}}
               </router-link>
+              <div class="markBottom"></div>
+              <div class="markTop"></div>
             </div>
             <div class="navItemSub navItemSubPhone"
               :class="{navItemSubWrapShowPhone: (nowNav == nav.link && navSubShow === '') || navSubShow}"
@@ -62,9 +67,15 @@
           <div class="navItem"><div class="navItemTxt">NEWS</div></div>
           <div class="navItem"><div class="navItemTxt">CONTANT</div></div> -->
         </div>
+        <div class="copyRight" v-if="window.showLogoStage">
+            Copyright © Ridunshe committee. <br/>
+            All rights reserved.
+        </div>
       </div>
       <div class="conWrap">
+        <div class="conMark"></div>
         <router-view/>
+
       </div>
     </div>
   </div>
@@ -79,6 +90,7 @@ export default {
   name: 'App',
   data () {
     return {
+      window,
       showLogoStage: window.showLogoStage,
       navs: [],
       nowNav: '',
@@ -98,6 +110,7 @@ export default {
     if (window.showLogoStage) {
       setTimeout(() => {
         this.showLogoStage = false
+        // window.showLogoStage = false
       }, 2800)
     }
   },
@@ -105,7 +118,7 @@ export default {
     getNav () {
       get('/index/menu').then(res => {
         this.navs = res
-      }).catch(e=>{})
+      }).catch(e => {})
     },
     logoClick () {
       this.navShow = false;
@@ -131,7 +144,7 @@ html,body{
   padding:0;
 }
 html,body,div,a,p,span{
-  font-family:”Microsoft YaHei”;
+  font-family:'Microsoft YaHei';
 }
 img{
   border: none;
@@ -140,7 +153,7 @@ img{
   width: 1460px;
   margin:0 auto;
   /* border:1px solid red; */
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Microsoft YaHei','Avenir', Helvetica, Arial, sans-serif;
 }
 @keyframes opacityAnimation
 {
@@ -182,23 +195,26 @@ img{
   width:290px;
   position: fixed;
   z-index: 2;
+  bottom:0;
+  top:0;
 }
 .navItem{
   display: block;
   text-decoration: none;
   font-weight: bold;
   cursor: pointer;
-  color: rgb(126,126,126);
-  line-height: 20px;
+  color: rgb(145,145,145);
+  line-height: 35px;
+  letter-spacing: 6px;
 }
 .navItemTxt{
   cursor: pointer;
   transition: all 0.2s;
-  font-family: 'Georgia-Bold';
+  font-family: 'Georgia-Bold','Georgia';
   font-size: 14px;
 }
 .router-link-active,.navItemActive,.navItemTxt:hover{
-  color: rgb(63,63,63);
+  color: rgb(80,80,80);
   padding-left: 12px;
 }
 
@@ -210,6 +226,20 @@ img{
   opacity: 0.3;
   transform: scale(1, 0);
   display: none;
+  position: relative;
+}
+.navItemSub .markTop,.navItemSub .markBottom{
+  width:2px;
+  height: 12px;
+  background: #fff;
+  position: absolute;
+  left: -2px;
+}
+.navItemSub .markTop{
+  top:0;
+}
+.navItemSub .markBottom{
+  bottom:0;
 }
 
 .navItemSubPhone,.navItemPhone{
@@ -228,12 +258,12 @@ img{
   cursor: pointer;
   display: block;
   text-decoration: none;
-  color: rgb(126,126,126);
+  color: rgb(145,145,145);
   padding-left: 0;
   transition: all 0.2s;
-  font-family: 'Georgia-Bold';
+  font-family: 'Georgia-Bold','Georgia';
   font-size: 14px;
-  line-height: 20px;
+  line-height: 35px;
 }
 .navItemSub a:hover{
   padding-left: 12px;
@@ -241,7 +271,7 @@ img{
 }
 
 .subnavActive,.navItemSub a:hover{
-  color: rgb(63,63,63) !important;
+  color: rgb(80,80,80) !important;
   padding-left: 12px  !important;
 }
 
@@ -252,10 +282,41 @@ img{
   padding-top:110px;
   padding-left: 290px;
 }
+.conMark{
+  width: 1170px;
+  height:110px;
+  position: fixed;
+  background: #fff;
+  z-index: 10;
+  top: 0;
+  /* border: 1px solid red; */
+}
 .wrap:after{
   clear: both;
   display:block;
   content:"";
+}
+
+.copyRight{
+  position: absolute;
+  width:290px;
+  left: 0;
+  bottom: 0;
+  padding-bottom: 50px;
+  color: #a2a2a6;
+  font-size: 12px;
+}
+
+.dataContent img{
+      max-width: 100%;
+}
+
+.jiathis_weixin_modal{
+  margin:0 !important;
+  transform: translate(-50%,-50%);
+  padding: 10px;
+  width:300px !important;
+  height: auto;
 }
 
 @media screen and (max-width: 1024px){
@@ -265,10 +326,10 @@ img{
   #app{
     width:100%;
     overflow: hidden;
-    padding-top:92px;
+    padding-top:70px;
   }
   .logoWrap{
-    padding:30px 0;
+    padding:20px 0;
     display: flex;
     justify-content: space-between;
     position: fixed;
@@ -284,20 +345,21 @@ img{
   .logoWrappc{
     display: none;
   }
-  .logo{
-
+  .logo img{
+    width:auto;
+    height:24px;
   }
   .menuBtn{
     display: block;
-    font-size: 30px;
+    font-size: 24px;
     background: url(./assets/menu_icon.png) no-repeat center center;
     background-size:100%;
     text-indent: -100px;
-    width:32px;
-    height:30px;
+    width:24px;
+    height:24px;
     overflow: hidden;
     text-align: center;
-    line-height: 30px;
+    line-height: 24px;
     color: rgb(76,76,76);
   }
   .menuBtnShow{
@@ -309,7 +371,7 @@ img{
     position: fixed;
     background: #fff;
     width:100%;
-    top:92px;
+    top:68px;
     bottom:0;
     left: 0;
     z-index: 5;
@@ -339,6 +401,10 @@ img{
   }
   .navItemSub{
     border-left: none;
+    position: static;
+  }
+  .navItemSub .markTop,.navItemSub .markBottom{
+    display: none;
   }
   .navItemSubWeb,.navItemWeb{
     display: none;
@@ -346,6 +412,17 @@ img{
   .navItemPhone{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+  }
+  .navItemPhone div:nth-child(2){
+    width:18px;
+    height: 10px;
+    background: url(./assets/arrow.png) no-repeat;
+    background-size: 100% 100%;
+    transition: transform 0.3s;
+  }
+  .arrowUp{
+    transform: rotateZ(180deg);
   }
   .navItemSubWrapShowPhone{
     display: block;
@@ -355,9 +432,17 @@ img{
     overflow: hidden;
     padding-top:0;
     padding-left: 0;
+    margin-bottom:20px;
+  }
+  .conMark{
+    display: none;
   }
   .dataContent img{
     max-width: 100%;
+  }
+  .copyRight{
+    display:none;
+    position: static;
   }
 }
 </style>
