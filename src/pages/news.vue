@@ -55,7 +55,7 @@ export default {
         // var oMeta = document.getElementsByTagName('meta')[2];    //第二个
         // oMeta.content = "phone";
         this.data = res
-      }).catch(e=>{})
+      }).catch(e => {})
     }
   }
 }
@@ -76,7 +76,8 @@ export default {
 }
 .newsL{
   float: left;
-  width:450px;
+  /* width:450px; */
+  width:38%;
 }
 .newsTit{
   display: block;
@@ -123,13 +124,14 @@ export default {
 }
 .newsR{
   float: right;
-  width: 490px;
+  width:42%;
+  /* width: 490px; */
   height:250px;
   display: block;
 }
 .newsR img{
   display: block;
-  width: 490px;
+  width: 100%;
   height:250px;
 }
 

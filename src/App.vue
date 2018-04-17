@@ -150,7 +150,9 @@ img{
   border: none;
 }
 #app {
-  width: 1460px;
+  min-width: 1024px;
+  max-width: 1460px;
+  padding:0 20px;
   margin:0 auto;
   /* border:1px solid red; */
   font-family: 'Microsoft YaHei','Avenir', Helvetica, Arial, sans-serif;
@@ -276,7 +278,9 @@ img{
 }
 
 .conWrap{
-  width:1170px;
+  min-width: 743px;
+  max-width:1170px;
+
   position: relative;
   margin-bottom:50px;
   padding-top:110px;
@@ -324,9 +328,11 @@ img{
     padding:0 16px;
   }
   #app{
+    min-width: 100%;
+    max-width:100%;
     width:100%;
     overflow: hidden;
-    padding-top:70px;
+    padding: 70px 0 0 0;
   }
   .logoWrap{
     padding:20px 0;
@@ -428,6 +434,8 @@ img{
     display: block;
   }
   .conWrap{
+    min-width: 100%;
+    max-width:100%;
     width:100%;
     overflow: hidden;
     padding-top:0;

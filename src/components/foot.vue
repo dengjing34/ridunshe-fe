@@ -57,16 +57,20 @@ export default {
   float: left;
 }
 .fl{
-  width: 300px;
+  /* width: 300px; */
+  width: 30%;
 }
 .flm{
   float: left;
+  width: 82%;
 }
 .fm{
-  width: 670px;
+  /* width: 670px; */
+  width: 70%;
 }
 .fr{
-  width: 200px;
+  width: 18%;
+  /* width: 200px; */
 }
 .flIcon{
   height:32px;
