@@ -6,7 +6,8 @@
       </div>
       <div class="mapConWrap">
         <div class="mapCon">
-          <iframe width="504" height="425" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://j.map.baidu.com/3uXGO"></iframe>
+          <!-- <iframe width="504" height="425" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://j.map.baidu.com/3uXGO"></iframe> -->
+          <iframe width="504" height="425" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://j.map.baidu.com/WzDdP"></iframe>
           <!-- <iframe ref="iframeMap" width="504" height="425" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe> -->
         </div>
       </div>

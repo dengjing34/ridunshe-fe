@@ -100,7 +100,7 @@ export default {
 .worksSubImgItem div p{
   transform: translate(0, 40px);
   transition: transform 0.35s;
-  line-height: 190px;
+  /* line-height: 190px; */
   /* border: 1px solid red; */
   margin:0;
 }
