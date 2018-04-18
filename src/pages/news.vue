@@ -77,22 +77,25 @@ export default {
 .newsL{
   float: left;
   /* width:450px; */
-  width:38%;
+  width:4.5rem;
 }
 .newsTit{
   display: block;
   font-size: 34px;
-  line-height: 36px;
+  /* line-height: 36px; */
+  line-height: 0.36rem;
   font-weight: bold;
   color: rgb(63,63,63);
   text-decoration: none;
 }
 .newsCon{
-  padding-top:30px;
+  /* padding-top:30px; */
+  padding-top: 0.3rem;
   line-height: 24px;
   font-size: 14px;
   color: rgb(101,101,101);
-  height:170px;
+  /* height:170px; */
+  height: 1.7rem;
   overflow: hidden;
 }
 .newsF{
@@ -124,15 +127,18 @@ export default {
 }
 .newsR{
   float: right;
-  width:42%;
   /* width: 490px; */
-  height:250px;
+  /* height:250px; */
+  width: 4.9rem;
+  height: 2.5rem;
   display: block;
 }
 .newsR img{
   display: block;
-  width: 100%;
-  height:250px;
+  /* width: 490px;
+  height:250px; */
+  width: 4.9rem;
+  height: 2.5rem;
 }
 
 @media screen and (max-width: 1024px){

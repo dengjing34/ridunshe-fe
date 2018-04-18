@@ -64,10 +64,13 @@ export default {
 <style scoped>
 .worksSubImgItem{
   display: inline-block;
-  margin-right:6px;
-  margin-bottom:6px;
-  width:286px;
-  height:190px;
+  /* margin-right:6px;
+  margin-bottom:6px; */
+  /* width:286px;
+  height:190px; */
+  margin:0 0.06rem 0.06rem 0;
+  width:2.86rem;
+  height:1.9rem;
   position: relative;
   overflow: hidden;
   transition: opacity 0.5s ease-out,transform 0.4s ease-out;
@@ -79,17 +82,22 @@ export default {
   opacity: 1;
 }
 .worksSubImgItem img{
-  width:286px;
-  height:190px;
+  /* width:286px;
+  height:190px; */
+  width:2.86rem;
+  height:1.9rem;
   transition: transform 0.5s ease-out;
 }
 .worksSubImgItem div{
   position: absolute;
   left:0;
   top:0;
-  width:286px;
+  /* width:286px;
   height:190px;
-  line-height: 190px;
+  line-height: 190px; */
+  width:2.86rem;
+  height:1.9rem;
+  line-height: 1.9rem;
   text-align: center;
   color: #fff;
   transition: opacity .3s;

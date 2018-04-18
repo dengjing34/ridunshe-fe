@@ -107,6 +107,17 @@ export default {
     this.getNav()
   },
   mounted () {
+    function setFontSize () {
+      var doc = window.document;
+      var $html = doc.getElementsByTagName('html')[0];
+      // var windowWidth = doc.documentElement.clientWidth || doc.body.clientWidth || window.innerWidth;
+      var appWidth = doc.getElementById('app').clientWidth;
+      $html.style.fontSize = (appWidth - 40 - 290) / 1170 * 100 + 'px';
+      // console.log(appWidth)
+      // console.log($html.style.fontSize)
+    }
+    window.onresize = setFontSize;
+    setFontSize();
     if (window.showLogoStage) {
       setTimeout(() => {
         this.showLogoStage = false
@@ -156,6 +167,7 @@ img{
   margin:0 auto;
   /* border:1px solid red; */
   font-family: 'Microsoft YaHei','Avenir', Helvetica, Arial, sans-serif;
+  font-size: 14px;
 }
 @keyframes opacityAnimation
 {
@@ -278,16 +290,16 @@ img{
 }
 
 .conWrap{
-  min-width: 743px;
-  max-width:1170px;
-
+  /* width:1170px; */
+  width:11.70rem;
   position: relative;
   margin-bottom:50px;
   padding-top:110px;
   padding-left: 290px;
 }
 .conMark{
-  width: 1170px;
+  /* width: 1170px; */
+  width: 11.7rem;
   height:110px;
   position: fixed;
   background: #fff;

@@ -104,8 +104,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .slider{
-  width:1170px;
-  height:490px;
+  /* width:1170px;
+  height:490px; */
+  width:11.70rem;
+  height:4.9rem;
   overflow: hidden;
   position: relative;
 }
@@ -139,8 +141,10 @@ export default {
   display: block;
   opacity: 0;
   transition: opacity 1.5s;
-  width:1170px;
-  height:490px;
+  /* width:1170px;
+  height:490px; */
+  width:11.70rem;
+  height:4.9rem;
   overflow: hidden;
   left: 0;
   top: 0;
@@ -155,15 +159,19 @@ export default {
   top:0;
   background: rgba(126,126,126, 0.76);
   text-align: center;
-  height: 490px;
   color: #fff;
-  width: 1170px;
+  /* width: 1170px;
+  height: 490px; */
+  width:11.70rem;
+  height:4.9rem;
   transition: all 0.8s;
 }
 
 .sliderImgWrap img{
-  width:1170px;
-  height:490px;
+  /* width:1170px;
+  height:490px; */
+  width:11.70rem;
+  height:4.9rem;
   display: block;
   transform: scale(1);
   transition: transform 0.6s;
@@ -260,8 +268,10 @@ export default {
 
 .imgs a{
   display: inline-block;
-  width:290px;
-  height:290px;
+  /* width:290px;
+  height:290px; */
+  width:2.90rem;
+  height:2.90rem;
   overflow: hidden;
   margin-right:2px;
   position: relative;
@@ -274,8 +284,10 @@ export default {
   opacity: 1;
 }
 .imgs div{
-  width:290px;
-  height:290px;
+  /* width:290px;
+  height:290px; */
+  width:2.90rem;
+  height:2.90rem;
   position: absolute;
   left:0;
   top:0;
@@ -294,8 +306,10 @@ export default {
 }
 .imgs img{
   display: block;
-  width:290px;
-  height:290px;
+  /* width:290px;
+  height:290px; */
+  width:2.90rem;
+  height:2.90rem;
   margin-right: 2px;
   transition: transform 0.4s ease-out;
 }
