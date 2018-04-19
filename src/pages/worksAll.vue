@@ -62,8 +62,14 @@ export default {
 </script>
 
 <style scoped>
+.worksSubImg::after{
+  clear: both;
+  display: block;
+  content: '';
+}
 .worksSubImgItem{
-  display: inline-block;
+  display: block;
+  float: left;
   /* margin-right:6px;
   margin-bottom:6px; */
   /* width:286px;

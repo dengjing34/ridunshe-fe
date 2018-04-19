@@ -95,7 +95,7 @@ export default {
   font-size: 14px;
   color: rgb(101,101,101);
   /* height:170px; */
-  height: 1.7rem;
+  min-height: 1.7rem;
   overflow: hidden;
 }
 .newsF{
@@ -158,6 +158,7 @@ export default {
   }
   .newsTit{
     font-size: 16px;
+    line-height: 36px
   }
   .newsCon{
     height: auto;

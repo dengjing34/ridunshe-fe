@@ -365,31 +365,31 @@ img{
   }
   .logo img{
     width:auto;
-    height:24px;
+    height:18px;
   }
   .menuBtn{
     display: block;
-    font-size: 24px;
-    background: url(./assets/menu_icon.png) no-repeat center center;
+    background-image: url(./assets/menu_icon.png);
+    background-repeat: no-repeat;
+    background-position: center center;
     background-size:100%;
     text-indent: -100px;
-    width:24px;
-    height:24px;
+    width:18px;
+    height:18px;
     overflow: hidden;
-    text-align: center;
-    line-height: 24px;
     color: rgb(76,76,76);
+    transition: all 0.3s;
   }
   .menuBtnShow{
-    text-indent: 0;
-    background: none;
+    background-image: url(./assets/menu_close_icon.png);
+    background-size: 16px 16px;
   }
   .nav{
     float: none;
     position: fixed;
     background: #fff;
     width:100%;
-    top:68px;
+    top:62px;
     bottom:0;
     left: 0;
     z-index: 5;
@@ -408,7 +408,7 @@ img{
     transform: scale(1,1);
   }
   .navP{
-    padding:20px 25px 0;
+    padding:20px 16px 0;
   }
   .navP .navItem{
     border-bottom:1px solid rgb(86,86,86);
@@ -438,9 +438,10 @@ img{
     background: url(./assets/arrow.png) no-repeat;
     background-size: 100% 100%;
     transition: transform 0.3s;
-  }
-  .arrowUp{
     transform: rotateZ(180deg);
+  }
+  .navItemPhone div:nth-child(2).arrowUp{
+    transform: rotateZ(0deg);
   }
   .navItemSubWrapShowPhone{
     display: block;
