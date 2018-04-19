@@ -342,6 +342,9 @@ export default {
   .slider .btnL,.slider .btnR{
     display: none;
   }
+  .slider:hover .btnL,.slider:hover .btnR{
+    display: block;
+  }
   .sliderImgWrap{
     position: static;
     opacity: 1;
