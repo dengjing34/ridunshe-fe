@@ -69,7 +69,8 @@
         </div>
         <div class="copyRight" v-if="window.showLogoStage">
             Copyright © Ridunshe committee. <br/>
-            All rights reserved.
+            All rights reserved.<br/>
+            <a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备11010974号-2</a>
         </div>
       </div>
       <div class="conWrap">
@@ -322,7 +323,10 @@ img{
   color: #a2a2a6;
   font-size: 12px;
 }
-
+.copyRight a {
+  font-size: 12px;
+  color: #a2a2a6;
+}
 .dataContent img{
       max-width: 100%;
 }

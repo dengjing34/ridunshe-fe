@@ -31,7 +31,8 @@
     </div>
     <div class="copyRight">
         Copyright © Ridunshe committee. <br/>
-        All rights reserved.
+        All rights reserved.<br>
+        <a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备11010974号-2</a>
     </div>
   </div>
 </template>
