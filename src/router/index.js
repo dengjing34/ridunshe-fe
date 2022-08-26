@@ -58,9 +58,9 @@ let router = new Router({
 router.beforeEach((to, from, next) => {
   window.scrollTo(0, 0)
   if (to.meta.title) {
-    document.title = 'Ridunshe-' + to.meta.title
+    document.title = '成都日敦社文化传播有限公司 - ' + to.meta.title
   } else {
-    document.title = 'Ridunshe'
+    document.title = '成都日敦社文化传播有限公司'
   }
   if (to.name == 'home') {
     window.showLogoStage = true
