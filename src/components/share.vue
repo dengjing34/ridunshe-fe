@@ -29,18 +29,18 @@ export default {
     };
   },
   mounted () {
-    window.jiathis_config = {
-      // url:"http://",
-      // summary:"摘要", //摘要
-      // title:"标题 #话题#", //标题 #话题#
-      shortUrl: false,
-      hideMore: false
-    }
-    // jia();
-    let url = 'http://v3.jiathis.com/code_mini/jia.js'
-    let script = document.createElement('script')
-    script.setAttribute('src', url)
-    document.getElementsByTagName('head')[0].appendChild(script);
+    // window.jiathis_config = {
+    //   // url:"http://",
+    //   // summary:"摘要", //摘要
+    //   // title:"标题 #话题#", //标题 #话题#
+    //   shortUrl: false,
+    //   hideMore: false
+    // }
+    // // jia();
+    // let url = 'http://v3.jiathis.com/code_mini/jia.js'
+    // let script = document.createElement('script')
+    // script.setAttribute('src', url)
+    // document.getElementsByTagName('head')[0].appendChild(script);
   },
   methods: {
     jumpTop () {
